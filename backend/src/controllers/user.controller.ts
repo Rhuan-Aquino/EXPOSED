@@ -47,7 +47,6 @@ export async function getUserByUsername(req: any, res: any) {
 }
 
 import { supabase } from "../lib/superbase";
-import { prisma } from "../prisma.client";
 
 export async function updateProfile(req: any, res: any) {
   try {
