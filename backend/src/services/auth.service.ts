@@ -1,8 +1,11 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import { prisma } from "../prisma.client";
 
+// REGISTER
 export async function registerUser(data: {
   name: string;
+  username: string;
   email: string;
   password: string;
 }) {
@@ -25,7 +28,6 @@ export async function registerUser(data: {
     },
   });
 
-  // 👇 NÃO retorna password
   return {
     id: user.id,
     name: user.name,
@@ -36,8 +38,6 @@ export async function registerUser(data: {
 }
 
 // LOGIN
-import jwt from "jsonwebtoken";
-
 export async function loginUser(data: {
   email: string;
   password: string;
